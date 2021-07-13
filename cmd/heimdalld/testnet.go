@@ -114,8 +114,8 @@ testnet --v 4 --n 8 --output-dir ./output --starting-ip-address 192.168.10.2
 					return err
 				}
 
-				valPubKeys[i] = "0x043fa8c08c65a83f6b4ea3e04e1cc70cbe3cd391499e3e05ab7dedf28aff9afc538200ff93e3f2b2cb5029f03c7ebee820d63a4c5a9541c83acebe293f54cacf0e"
-				privKeys[i] = "0x4d5db4107d237df6a3d58ee5f70ae63d73d7658d4026f2eefd2f204c81682cb7"
+				privKeys[i] = crypto.GenPrivKeyFromSecret([]byte("0x043fa8c08c65a83f6b4ea3e04e1cc70cbe3cd391499e3e05ab7dedf28aff9afc538200ff93e3f2b2cb5029f03c7ebee820d63a4c5a9541c83acebe293f54cacf0e"))
+				valPubKeys[i] = privKeys[i].PubKey
 
 				genFiles[i] = config.GenesisFile()
 				newPubkey := CryptoKeyToPubkey(valPubKeys[i])
